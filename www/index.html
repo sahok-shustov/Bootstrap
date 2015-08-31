@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Планировщик курсов</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/controller.js"></script>
+</head>
+
+<body ng-app="courseListApp">
+    <ion-pane ng-controller="courseListCtrl">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Ionic Blank Starter</h1>
+            <button ng-click="addNewCourse()">Ololo</button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="container">
+                <div class="page-header">
+                    <h1> Планировщик курсов</h1>
+                    <h3> Пользователь: {{data.user}}. Количество курсов - {{data.courses.length}}</h3>
+                </div>
+                <div class="panel">
+                    <div class="input-group">
+                        <input class="form-control" ng-model="courseName" />
+                        <span class="input-group-btn">
+                          <button class="btn" ng-click="addNewCourse()">Добавить</button>
+                        </span>
+                    </div>
+                    <table class="table table-hover">
+                        <caption>table title and/or explanatory text</caption>
+                        <thead>
+                            <tr>
+                                <th>Курс</th>
+                                <th>Пройден</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="course in data.courses">
+                                <td>{{course.name}}</td>
+                                <td>{{course.passed}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </ion-content>
+    </ion-pane>
+</body>
+
+</html>
